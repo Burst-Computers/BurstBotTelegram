@@ -3,7 +3,7 @@ Bot de Telegram para Burst Computers
 
 ## Comenzando 🚀
 
-_Enlace directo al_ [Bot oficial](https://telegram.me/burstcomputers_bot)
+Enlace directo al [Bot oficial](https://telegram.me/burstcomputers_bot)
 
 
 ### ¿Que hace el bot? 📋
@@ -39,7 +39,7 @@ Ejemplo:
 
 ![](src/TL2.PNG)
 
-A partir de éste punto, la interacción con el bot corresponde al usuario.
+A partir de éste punto, la interacción con el bot corresponde al usuario quién puede seleccionar las diferentes opciones para encontrar la información que desea.
 
 ## Construido con 🛠️
 
