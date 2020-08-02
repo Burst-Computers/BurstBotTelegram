@@ -1,4 +1,4 @@
-const Telegraf = require('telegraf') //Importa la librería te métodos TELEGRAF
+const Telegraf = require('telegraf') //Importa la librería de métodos Telegraf
 require('dotenv').config(); //Requiere la libreria para la creación de variables de entorno 
 const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
     token: process.env.TOKEN,
