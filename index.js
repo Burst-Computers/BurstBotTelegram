@@ -15,7 +15,7 @@ ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /Rede
 })
 
 
-bot.help((ctx) => 
+bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
 {
     ctx.reply('/Direccion \n /Horario \n /Garantia \n /CatalogoWs \n /Precios');
 })
