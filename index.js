@@ -8,7 +8,7 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido a mi chat. Puedo ayudarte en muchas cosas, empecemos con la lista de comandos que te estoy enviando.`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido a mi chat. \n Empecemos con la lista de comandos que te estoy enviando.`);
 
 ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 
