@@ -1,5 +1,10 @@
-const Telegraf = require('telegraf')
-const bot = new Telegraf('1300868835:AAHM7-i7zUZupBIedb1r2YARN0INCwsGkT0')
+const Telegraf = require('telegraf') //Importa la librería te métodos TELEGRAF
+require('dotenv').config(); //Requiere la libreria para la creación de variables de entorno 
+const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
+    token: process.env.TOKEN,
+};
+const bot = new Telegraf(config.token)  //Token de acceso a la App
+console.log("Bot online");
 
 bot.start((ctx) => 
 {
