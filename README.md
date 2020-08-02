@@ -1,9 +1,9 @@
-# BurstBotTelegram
+# BurstBot Telegram
 Bot de Telegram para Burst Computers
 
 ## Comenzando 🚀
 
-_Enlace directo al_ [Servidor](https://discord.gg/TXDrcTw)
+_Enlace directo al_ [Bot oficial](https://telegram.me/burstcomputers_bot)
 
 
 ### ¿Que hace el bot? 📋
@@ -30,11 +30,13 @@ Una vez dentro del chat, se debe presionar el botón **Start**
 /Start
 ```
 Ejemplo: 
+
 ![](src/TL1.PNG)
 
 El bot responderá con un saludo y a continuación enviará una lista de comandos:
 
 Ejemplo:
+
 ![](src/TL2.PNG)
 
 A partir de éste punto, la interacción con el bot corresponde al usuario.
@@ -42,7 +44,7 @@ A partir de éste punto, la interacción con el bot corresponde al usuario.
 ## Construido con 🛠️
 
 * [Node.JS](https://nodejs.org/en/) - Entorno que ejecuta codigo _server-side_ Javascript.
-* [Telegraf.JS](https://discord.js.org/#/) - Módulo de Node que facilita la interacción con la API de Telegram a través de un ambiente de programación orientado a objetos 
+* [Telegraf.JS](https://telegraf.js.org/) - Módulo de Node que facilita la interacción con la API de Telegram a través de un ambiente de programación orientado a objetos 
 * [Telegraf inline menu](https://github.com/EdJoPaTo/telegraf-inline-menu) - Librería que facilita la creación de menús interactivos
 
 
