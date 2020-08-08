@@ -8,16 +8,16 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido a mi chat. \n Empecemos con la lista de comandos que te estoy enviando.`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \n Para conocer los comandos disponibles escribe: \n /help si estás en una conversación privada conmigo \n /help@Burstcomputers_bot si estás charlando conmigo desde un grupo`);
 
-ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
+// ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 
 })
 
 
 bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
 {
-    ctx.reply('/Direccion \n /Horario \n /Garantia \n /CatalogoWs \n /Precios');
+    ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 })
 
 bot.settings((ctx) => 
