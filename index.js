@@ -1,7 +1,5 @@
 const Telegraf = require('telegraf') //Importa la librería de métodos Telegraf
 const axios = require('axios')
-var fs = require('fs');
-const products = require("./dictionary.json");
 require('dotenv').config(); //Requiere la libreria para la creación de variables de entorno 
 const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
     token: process.env.TOKEN,
@@ -34,22 +32,30 @@ bot.on('inline_query', async (ctx) =>
 {
     //console.log(ctx.inlineQuery)
     query = ctx.inlineQuery.query
+    url = `https://dev.to/api/articles?tag=${query}`
 
-    result = products.map((Productos, index)=>{
+    console.log(url)
+    res = await axios.get(url)
+
+    resArr = res.data
+    console.log(resArr.length)
+
+
+    result = resArr.map((elem, index)=>{
         return {
             type: 'article',
             id: String(index),
-            title: Productos.title,
-            description: Productos.description,
+            title: elem.title,
+            description: elem.description,
             input_message_content: {
-                message_text: `${Productos.title}\n${Productos.description}\n${Productos.url}`
+                message_text: `${elem.title}\n${elem.description}\n${elem.url}`
             },
-            url: Productos.link
+            url: elem.url
         }
     })
 
     ctx.answerInlineQuery(result)
-
+    
 })
 
 
