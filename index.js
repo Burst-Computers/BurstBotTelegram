@@ -1,23 +1,26 @@
 const Telegraf = require('telegraf') //Importa la librería de métodos Telegraf
+const axios = require('axios')
 require('dotenv').config(); //Requiere la libreria para la creación de variables de entorno 
 const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
     token: process.env.TOKEN,
 };
 const bot = new Telegraf(config.token)  //Token de acceso a la App
-console.log("Bot online");
+
+
+console.log("Bot online"); 
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido a mi chat. \n Empecemos con la lista de comandos que te estoy enviando.`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \n Para conocer los comandos disponibles escribe: \n /help si estás en una conversación privada conmigo \n /help@Burstcomputers_bot si estás charlando conmigo desde un grupo`);
 
-ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
+// ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 
 })
 
 
 bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
 {
-    ctx.reply('/Direccion \n /Horario \n /Garantia \n /CatalogoWs \n /Precios');
+    ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 })
 
 bot.settings((ctx) => 
@@ -25,9 +28,34 @@ bot.settings((ctx) =>
     ctx.reply('Configuración en Desarrollo');
 })
 
-bot.inlineQuery((ctx) => 
+bot.on('inline_query', async (ctx) => 
 {
-    ctx.reply('Configuración en Desarrollo');
+    //console.log(ctx.inlineQuery)
+    query = ctx.inlineQuery.query
+    url = `https://dev.to/api/articles?tag=${query}`
+
+    console.log(url)
+    res = await axios.get(url)
+
+    resArr = res.data
+    console.log(resArr.length)
+
+
+    result = resArr.map((elem, index)=>{
+        return {
+            type: 'article',
+            id: String(index),
+            title: elem.title,
+            description: elem.description,
+            input_message_content: {
+                message_text: `${elem.title}\n${elem.description}\n${elem.url}`
+            },
+            url: elem.url
+        }
+    })
+
+    ctx.answerInlineQuery(result)
+    
 })
 
 
