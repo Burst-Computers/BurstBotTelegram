@@ -1,48 +1,19 @@
-{
-    "Productos": [
-      {
-        "Id ": 1,
-        "type": "article",
-        "title": "Dell Latitude E6420",
-        "description": "Laptop Dell Latitude \n 📍pantalla de 14 \n📍Procesador Intel core i5 /Quad core / 4ta generación \n📍8Gb de memoria RAM DDR3 \n📍250Gb de disco duro HDD \n📍Intel HD Graphics VGA/ HDMI \n📍USB 3.0 \n📍Bluetooth Wi-Fi DVD Cámara web \n📍Windows 10 Pro \n📍90 Días de garantía",
-        "photo": "https://burstcomputers.files.wordpress.com/2020/08/ig-latitude-6420.png",
-        "link": "https://www.instagram.com/p/CBhJnGnHqlg/?utm_source=ig_web_copy_link"
-      },
-      {
-        "Id ": 2,
-        "square ": 3
-      },
-      {
-        "Id ": 3,
-        "square ": 9
-      },
-      {
-        "Id ": 4,
-        "square ": 16
-      },
-      {
-        "Id ": 5,
-        "square ": 25
-      },
-      {
-        "Id ": 6,
-        "square ": 36
-      },
-      {
-        "Id ": 7,
-        "square ": 49
-      },
-      {
-        "Id ": 8,
-        "square ": 64
-      },
-      {
-        "Id ": 9,
-        "square ": 81
-      },
-      {
-        "Id ": 10,
-        "square ": 100
-      }
-    ]
+[
+  {
+    "Id ": 1,
+    "type": "article",
+    "title": "Dell Latitude E6420",
+    "description": "Laptop Dell Latitude \n 📍pantalla de 14 \n📍Procesador Intel core i5 /Quad core / 4ta generación \n📍8Gb de memoria RAM DDR3 \n📍250Gb de disco duro HDD \n📍Intel HD Graphics VGA/ HDMI \n📍USB 3.0 \n📍Bluetooth Wi-Fi DVD Cámara web \n📍Windows 10 Pro \n📍90 Días de garantía",
+    "photo": "https://burstcomputers.files.wordpress.com/2020/08/ig-latitude-6420.png",
+    "link": "https://www.instagram.com/p/CBhJnGnHqlg/?utm_source=ig_web_copy_link"
+  },
+  {
+    "Id ": 2,
+    "type": "article",
+    "title": "Dell Latitude E6410",
+    "description": "Laptop Dell Latitude \n 📍pantalla de 12 \n📍Procesador Intel core i5 /Quad core / 4ta generación \n📍8Gb de memoria RAM DDR3 \n📍250Gb de disco duro HDD \n📍Intel HD Graphics VGA/ HDMI \n📍USB 3.0 \n📍Bluetooth Wi-Fi DVD Cámara web \n📍Windows 10 Pro \n📍90 Días de garantía",
+    "photo": "https://burstcomputers.files.wordpress.com/2020/08/e6410.png",
+    "link": "https://www.instagram.com/p/CBhJnGnHqlg/?utm_source=ig_web_copy_link"
   }
+
+]

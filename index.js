@@ -29,7 +29,7 @@ bot.on('inline_query', async (ctx) =>
 {
     //console.log(ctx.inlineQuery)
     query = ctx.inlineQuery.query
-    url = `https://andrewxxclark.github.io/jsontest/dictionary.json`
+    url = `https://andrewxxclark.github.io/jsontest/dictionary.json?tag=${query}`
 
     console.log(url)
     
