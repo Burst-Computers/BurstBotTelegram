@@ -4,22 +4,21 @@ require('dotenv').config(); //Requiere la libreria para la creación de variable
 const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
     token: process.env.TOKEN,
 };
-const bot = new Telegraf(config.token)  //Token de acceso a la App
 
+const bot = new Telegraf(config.token)  //Token de acceso a la App
 console.log("Bot online"); 
+
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \n Para conocer los comandos disponibles escribe: \n /help si estás en una conversación privada conmigo \n /help@Burstcomputers_bot si estás charlando conmigo desde un grupo`);
-
-// ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
-
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \nAqui están los comandos principales: \n /Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales \n Accede a ellos fácilmente desde el comando /help \n \n ¿Te encuentras en un grupo? escribe /help@Burstcomputers_bot \n\n ¿Quieres ver el catálogo de productos o enviarlo a un amigo? Desde cualquier chat solamente escribe @burstcomputers_bot y podrás hacerlo!`);
 })
 
 bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
 {
     ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 })
+
 
 bot.settings((ctx) => 
 {
@@ -48,7 +47,7 @@ bot.on('inline_query', async (ctx) =>
             description: elem.description,
             thumb_url: elem.photo,
             input_message_content: {
-                message_text: `${elem.title}\n${elem.description}\n\n${elem.photo}${elem.link}`
+                message_text: `${elem.title}\n${elem.description}\n${elem.photo}\n${elem.link}`
             },
             url: elem.link
         }
