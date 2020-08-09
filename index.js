@@ -11,14 +11,34 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \nAqui están los comandos principales: \n /Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales \n Accede a ellos fácilmente desde el comando /help \n \n ¿Te encuentras en un grupo? escribe /help@Burstcomputers_bot \n\n ¿Quieres ver el catálogo de productos o enviarlo a un amigo? Desde cualquier chat solamente escribe @burstcomputers_bot y podrás hacerlo!`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos o enviarlo a un amigo? Desde cualquier chat solamente escribe @burstcomp_bot y podrás hacerlo! \n \n /help@Burstcomputers_bot es la manera de llamarme si te encuentras en un grupo 💡`);
+ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+                [{text: "Lista de precios 🔖", callback_data: "listadeprecios"}, {text: "Métodos de pago", callback_data: "pagos"}, {text: "Redes Sociales 📱", callback_data: "social"}]
+              
+            ]
+        }
+    })
 })
 
-bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
+bot.help((ctx) => 
 {
-    ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+                [{text: "Lista de precios 🔖", callback_data: "listadeprecios"}, {text: "Métodos de pago", callback_data: "pagos"}, {text: "Redes Sociales 📱", callback_data: "social"}]
+              
+            ]
+        }
+    })
 })
-
 
 bot.settings((ctx) => 
 {
@@ -27,7 +47,6 @@ bot.settings((ctx) =>
 
 bot.on('inline_query', async (ctx) => 
 {
-    //console.log(ctx.inlineQuery)
     query = ctx.inlineQuery.query
     url = `https://burst-computers.github.io/BurstBotTelegram/dictionary.json?tag=${query}`
 
@@ -57,26 +76,26 @@ bot.on('inline_query', async (ctx) =>
     
 })
 
-//LISTA DE COMANDOS PERSONALIZADOS
-
-bot.command(['Menu', 'menu', 'MENU', 'menú', 'Menú', 'MENÚ'], (ctx) => //Menu principal
-{
-    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal',
+bot.action('Direccion', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Estamos ubicados en la Av. Páez del paraíso, Centro profesional paraíso, Diagonal al MC Donalds. Caracas, Distrito Capital.',
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Dirección", callback_data: "Direccion"}, {text: "Garantía", callback_data: "Garantia"}]
-               
+                [{text: "Ver en Google Maps", url: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x8c2a5f11707d886b:0x4022abc7e7c2c887?utm_source=mstt_1"}],
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
+
+                
             ]
         }
     })
-    console.log(ctx.message)
 })
 
-bot.action('Direccion', (ctx)=> { //Acción realizada por el bot al pulsar el boton "Dirección"
+bot.action('Garantia', (ctx)=> {
     
-    ctx.telegram.deleteMessage(ctx.chat.id, ctx.message_id)
-    ctx.telegram.sendMessage(ctx.chat.id, 'Estamos ubicados en la Av. Páez del paraíso, Centro profesional paraíso, Diagonal al MC Donalds. Caracas, Distrito Capital.',
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Todos nuestros equipos son Refurbished, todos con piezas 100% nuevas y ofrecemos 3 meses de garantía en nuestra tienda',
     {
         reply_markup: {
             inline_keyboard: [
@@ -86,73 +105,78 @@ bot.action('Direccion', (ctx)=> { //Acción realizada por el bot al pulsar el bo
     })
 })
 
-bot.action('backtomenu', (ctx)=> { //Acción realizada por el bot al pulsar el boton "Volver al menú"
-
-    //ctx.deleteMesssage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal',
+bot.action('Horario', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestro horario de trabajo por los momentos es de 9am a 12pm y atendemos los días Lunes / miércoles / viernes',
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Dirección", callback_data: "Direccion"}, {text: "Garantía", callback_data: "Garantía"}]
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
             ]
         }
     })
 })
 
-//Comando dirección
-bot.command(['Direccion', 'direccion', 'DIRECCION', 'Dirección', 'dirección', 'DIRECCIÓN'], (ctx) =>
-{
-    ctx.reply('Estamos ubicados en la Av. Páez del paraíso, Centro profesional paraíso, Diagonal al MC Donalds. Caracas, Distrito Capital. AVISO: Estamos atendiendo previa cita, debido a las restricciones y políticas contra el COVID -19, podemos acordar una fecha y hora para que se acerque a nuestra oficina y pueda ver los productos');
-})
-//Comando Garantía
-bot.command(['Garantía', 'garantía', 'GARANTÍA', 'Garantia', 'garantia', 'GARANTIA'], (ctx) =>
-{
-    ctx.reply('Todos nuestros equipos son Refurbished, todos con piezas 100% nuevas y ofrecemos 90 días de garantía en nuestra tienda');
-})
-//Comando Horario
-bot.command(['Horario', 'horario', 'HORARIO'], (ctx) =>
-{
-    ctx.reply('Nuestro horario de trabajo por los momentos es de 9am a 12pm y atendemos los días Lunes / miércoles / viernes');
-})
-//Comando Catálogo Whatsapp:
-bot.command(['Catalogo', 'catalogo', 'CATALOGO', 'Catálogo', 'catálogo','CATÁLOGO'], (ctx) =>
-{
-    ctx.reply(' Puedes encontrar nuestros productos disponibles en Whatsapp justo aqui:  https://wa.me/c/584244156765 ');
-})
-//Comando Lista de precios:
-bot.command(['Precios', 'precios', 'PRECIOS'], (ctx) =>
-{
-    ctx.reply('Puedes encontrar nuestra lista de precios siempre actualizada en este enlace: https://bit.ly/37SdCWu');
-
-})
-//Comando RedesSociales:
-bot.command(['RedesSociales', 'redessociales', 'Redessociales'], (ctx) =>
-{
-    ctx.reply('Facebook: www.facebook.com/burstcomputers \n Instagram: www.instagram.com/burstcomputers \n Twitter: www.twitter.com/burstcomputers \n\n Tambien puedes charlar con nuestros bots interactivos en Messenger y Discord justo aqui: \n\n Messenger: m.me/burstcomputers \n\n Servidor de Burst en Discord: https://discord.gg/eGbN44');
-})
-
-bot.command('Redes', (ctx) =>{
-    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestras Redes Sociales',
+bot.action('listadeprecios', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Puedes encontrar nuestra lista de precios siempre actualizada en este enlace: https://bit.ly/37SdCWu',
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}]
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
             ]
         }
     })
 })
 
+bot.action('pagos', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Aceptamos Zelle, Paypal, Banesco Panamá, Transferencias en Bs de todo tipo y efectivo de todo tipo',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+bot.action('social', (ctx) =>{
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestras Redes Sociales:',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}, {text: "Twitter", url: "www.twitter.com/burstcomputers"}],
+                [{text: "Whatsapp", url: "wa.me/584244156765"}, {text: "Discord", url: "https://discord.gg/7ppZQEz"}, {text: "Github", url: "https://burst-computers.github.io/BurstBotTelegram/"}],
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+
+bot.action('backtomenu', (ctx)=> {
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+                [{text: "Lista de precios 🔖", callback_data: "listadeprecios"}, {text: "Métodos de pago", callback_data: "pagos"}, {text: "Redes Sociales 📱", callback_data: "social"}]
+              
+            ]
+        }
+    })
+})
 
 bot.on('sticker', ctx =>
 {
- ctx.reply('Me agrada ese sticker');  
-})
-
-
-//Construcción de la IA a través del uso del método BOT.HEARS
-bot.hears('optiplex', ctx => 
-{
-ctx.reply("Si te interesan los equipos optiplex, escribe el comando /precios");
+ ctx.reply('buen sticker!');  
 })
 
 bot.hears('Programador', ctx => 
