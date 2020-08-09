@@ -59,6 +59,45 @@ bot.on('inline_query', async (ctx) =>
 
 //LISTA DE COMANDOS PERSONALIZADOS
 
+bot.command(['Menu', 'menu', 'MENU', 'menú', 'Menú', 'MENÚ'], (ctx) => //Menu principal
+{
+    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Dirección", callback_data: "Direccion"}, {text: "Garantía", callback_data: "Garantia"}]
+               
+            ]
+        }
+    })
+    console.log(ctx.message)
+})
+
+bot.action('Direccion', (ctx)=> { //Acción realizada por el bot al pulsar el boton "Dirección"
+    
+    ctx.telegram.deleteMessage(ctx.chat.id, ctx.message_id)
+    ctx.telegram.sendMessage(ctx.chat.id, 'Estamos ubicados en la Av. Páez del paraíso, Centro profesional paraíso, Diagonal al MC Donalds. Caracas, Distrito Capital.',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+bot.action('backtomenu', (ctx)=> { //Acción realizada por el bot al pulsar el boton "Volver al menú"
+
+    //ctx.deleteMesssage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Dirección", callback_data: "Direccion"}, {text: "Garantía", callback_data: "Garantía"}]
+            ]
+        }
+    })
+})
 
 //Comando dirección
 bot.command(['Direccion', 'direccion', 'DIRECCION', 'Dirección', 'dirección', 'DIRECCIÓN'], (ctx) =>
@@ -92,6 +131,17 @@ bot.command(['RedesSociales', 'redessociales', 'Redessociales'], (ctx) =>
     ctx.reply('Facebook: www.facebook.com/burstcomputers \n Instagram: www.instagram.com/burstcomputers \n Twitter: www.twitter.com/burstcomputers \n\n Tambien puedes charlar con nuestros bots interactivos en Messenger y Discord justo aqui: \n\n Messenger: m.me/burstcomputers \n\n Servidor de Burst en Discord: https://discord.gg/eGbN44');
 })
 
+bot.command('Redes', (ctx) =>{
+    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestras Redes Sociales',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}]
+            ]
+        }
+    })
+})
+
 
 bot.on('sticker', ctx =>
 {
@@ -109,4 +159,5 @@ bot.hears('Programador', ctx =>
 {
 ctx.reply("Andrew Clark.\n clark1621@gmail.com");
 })
+
 bot.launch()
