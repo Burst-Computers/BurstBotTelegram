@@ -6,7 +6,6 @@ const config = { //Configura variables de entorno para proteger los datos de acc
 };
 const bot = new Telegraf(config.token)  //Token de acceso a la App
 
-
 console.log("Bot online"); 
 
 bot.start((ctx) => 
@@ -16,7 +15,6 @@ ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat. \n Para conocer los 
 // ctx.reply('/Direccion \n /Horario \n /Garantia \n /Catalogo \n /Precios \n /RedesSociales');
 
 })
-
 
 bot.help((ctx) => //Menu principal de comandos especificados en la ayuda
 {
@@ -32,9 +30,10 @@ bot.on('inline_query', async (ctx) =>
 {
     //console.log(ctx.inlineQuery)
     query = ctx.inlineQuery.query
-    url = `https://dev.to/api/articles?tag=${query}`
+    url = `https://andrewxxclark.github.io/jsontest/dictionary.json`
 
     console.log(url)
+    
     res = await axios.get(url)
 
     resArr = res.data
@@ -47,17 +46,17 @@ bot.on('inline_query', async (ctx) =>
             id: String(index),
             title: elem.title,
             description: elem.description,
+            thumb_url: elem.photo,
             input_message_content: {
-                message_text: `${elem.title}\n${elem.description}\n${elem.url}`
+                message_text: `${elem.title}\n${elem.description}\n\n${elem.photo}${elem.link}`
             },
-            url: elem.url
+            url: elem.link
         }
     })
 
     ctx.answerInlineQuery(result)
     
 })
-
 
 //LISTA DE COMANDOS PERSONALIZADOS
 
