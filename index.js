@@ -1,11 +1,11 @@
-const Telegraf = require('telegraf') //Importa la librería de métodos Telegraf
+const Telegraf = require('telegraf')
 const axios = require('axios')
-require('dotenv').config(); //Requiere la libreria para la creación de variables de entorno 
-const config = { //Configura variables de entorno para proteger los datos de acceso a las apps
+require('dotenv').config(); 
+const config = { 
     token: process.env.TOKEN,
 };
 
-const bot = new Telegraf(config.token)  //Token de acceso a la App
+const bot = new Telegraf(config.token)
 console.log("Bot online"); 
 
 
