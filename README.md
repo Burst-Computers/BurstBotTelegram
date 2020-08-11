@@ -10,13 +10,14 @@ Enlace directo al [Bot oficial](https://telegram.me/burstcomputers_bot)
 Las principales funcionalidades son:
 
 * Saludar a nuevos usuarios.
-* Responde las preguntas frecuentes referentes a información de la empresa:
-    * De acuerdo a la pregunta, envía información en formatos de:
-       * Texto
-       * Imagenes
-       * Embeds
-       * Archivos
-       * Links
+* Responde las preguntas frecuentes referentes a información de la empresa a través de menús interactivos.
+* Inline Query: Escribe el ususario del bot desde **cualquier chat** y podrás ver el catálogo de productos
+* De acuerdo a la pregunta, envía información en formatos de:
+    * Texto
+    * Imagenes
+    * Embeds
+    * Archivos
+    * Links
 * Escucha comandos:
     * Responde a palabras clave dentro de la conversación que no responden a un formato de comando
 * Integrarse con redes sociales a través de webhooks
@@ -33,13 +34,20 @@ Ejemplo:
 
 ![](src/TL1.PNG)
 
-El bot responderá con un saludo y a continuación enviará una lista de comandos:
+El bot responderá con un saludo y a continuación enviará el menú principal:
 
 Ejemplo:
 
-![](src/TL2.PNG)
+![](src/menu_principal.gif)
 
 A partir de éste punto, la interacción con el bot corresponde al usuario quién puede seleccionar las diferentes opciones para encontrar la información que desea.
+
+
+Puedes enviar productos del catálogo fácilmente a cualquier usuario a través del Inline Query:
+
+Ejemplo:
+
+![](src/inlinequery.jpg)
 
 ## Construido con 🛠️
 
