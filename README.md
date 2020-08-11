@@ -3,7 +3,7 @@ Bot de Telegram para Burst Computers
 
 ## Comenzando 🚀
 
-Enlace directo al [Bot oficial](https://telegram.me/burstcomputers_bot)
+Enlace directo al [Bot oficial](https://telegram.me/burstcomp_bot)
 
 
 ### ¿Que hace el bot? 📋
@@ -24,7 +24,7 @@ Las principales funcionalidades son:
 
 
 ### Comunicarse con el bot 
-Una vez dentro del chat, se debe presionar el botón **Start**
+Una vez dentro del chat, se debe presionar el botón **start**
 ésto enviará al bot el comando:
 
 ```
@@ -47,12 +47,12 @@ Puedes enviar productos del catálogo fácilmente a cualquier usuario a través 
 *Ejemplo:*
 
 
-![](src/inlinequery.jpg)
+![](src/inlinequery.PNG)
 
 ## Construido con 🛠️
 
 * [Node.JS](https://nodejs.org/en/) - Entorno que ejecuta codigo _server-side_ Javascript.
-* [Telegraf.JS](https://telegraf.js.org/) - Módulo de Node que facilita la interacción con la API de Telegram a través de un ambiente de programación orientado a objetos
+* [Telegraf.JS](https://telegraf.js.org/) - Librería que facilita la interacción con la API de Telegram a través de un ambiente de programación orientado a objetos
 * [GitHub Pages](https://pages.github.com/) - Hosting para proyectos multiplataforma.       
 
 
