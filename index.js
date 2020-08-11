@@ -50,7 +50,7 @@ bot.settings((ctx) =>
 bot.on('inline_query', async (ctx) => 
 {
     query = ctx.inlineQuery.query
-    url = `https://burst-computers.github.io/BurstBotTelegram/dictionary.json?tag=${query}`
+    url = `https://burst-computers.github.io/BurstBotTelegram/dictionary.json`
 
     console.log(url)
     
