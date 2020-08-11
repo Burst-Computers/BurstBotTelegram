@@ -186,8 +186,9 @@ bot.on('sticker', ctx =>
  ctx.reply('buen sticker!');  
 })
 
-bot.hears('Programador', ctx => 
+bot.hears('programador', ctx => 
 {
+ctx.toLowerCase();
 ctx.reply("Andrew Clark.\n clark1621@gmail.com");
 })
 
