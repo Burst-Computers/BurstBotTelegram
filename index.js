@@ -68,7 +68,7 @@ bot.on('inline_query', async (ctx) =>
             description: elem.description,
             thumb_url: elem.photo,
             input_message_content: {
-                message_text: `${elem.title}\n${elem.description}\n${elem.photo}\n${elem.link}`
+                message_text: `${elem.title}\n${elem.description}\n${elem.link}`
             },
             url: elem.link
         }
