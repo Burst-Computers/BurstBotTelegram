@@ -40,7 +40,6 @@ El bot responderá con un saludo y a continuación enviará el menú principal:
 
 ![](src/menu_principal.gif)
 
-A partir de éste punto, la interacción con el bot corresponde al usuario quién puede seleccionar las diferentes opciones para encontrar la información que desea.
 
 
 Puedes enviar productos del catálogo fácilmente a cualquier usuario a través del Inline Query:
