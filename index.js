@@ -11,19 +11,21 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat solamente escribe @burstcomp_bot y podrás hacerlo! \n \n /help muestra el menú principal en cualquier momento \n\n /help@Burstcomp_bot es la manera de llamarme si te encuentras en un grupo 💡`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat solamente escribe @burstcomp_bot y podrás hacerlo! \n \n /help muestra el menú principal en cualquier momento`);
 ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
-    {
-        reply_markup: {
-            inline_keyboard: [
-                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
-                [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
-                [{text: "Cerrar el menú", callback_data: "cierramenu"}]
-              
-            ]
-        }
-    })
+{
+    reply_markup: {
+        inline_keyboard: [
+            [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+            [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+            [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
+            [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+            [{text: "Cerrar el menú", callback_data: "cierramenu"}]
+          
+        ]
+    }
+})
 })
 
 bot.help((ctx) => 
@@ -33,8 +35,10 @@ bot.help((ctx) =>
         reply_markup: {
             inline_keyboard: [
                 [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+                [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
                 [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
+                [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
                 [{text: "Cerrar el menú", callback_data: "cierramenu"}]
               
             ]
@@ -160,7 +164,6 @@ bot.action('social', (ctx) =>{
     })
 })
 
-
 bot.action('backtomenu', (ctx)=> {
     ctx.deleteMessage()
     ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
@@ -168,8 +171,10 @@ bot.action('backtomenu', (ctx)=> {
         reply_markup: {
             inline_keyboard: [
                 [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Dirección 📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+                [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
                 [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
+                [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
                 [{text: "Cerrar el menú", callback_data: "cierramenu"}]
               
             ]
