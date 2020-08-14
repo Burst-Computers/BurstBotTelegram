@@ -46,7 +46,6 @@ Puedes enviar productos del catálogo fácilmente a cualquier usuario a través 
 
 *Ejemplo:*
 
-
 ![](src/inlinequery.PNG)
 
 ## Construido con 🛠️
