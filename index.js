@@ -78,13 +78,14 @@ bot.on('inline_query', async (ctx) =>
         }
     })
 
-    ctx.answerInlineQuery(result)
+    ctx.answerInlineQuery(index,result)
     
 })
 
 bot.action('Direccion', (ctx)=> {
-    
+
     ctx.deleteMessage()
+    ctx.telegram.sendLocation(ctx.chat.id, 10.4841881, -66.935708,),
     ctx.telegram.sendMessage(ctx.chat.id, 'Estamos ubicados en la Av. Páez del paraíso, Centro profesional paraíso, Diagonal al MC Donalds. Caracas, Distrito Capital.',
     {
         reply_markup: {

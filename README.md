@@ -24,7 +24,7 @@ Las principales funcionalidades son:
 * Integrarse con redes sociales a través de webhooks
 
 
->### Comunicarse con el bot 
+>### Comunicarse con el bot:
 Una vez dentro del chat, se debe presionar el botón **start**
 ésto enviará al bot el comando:
 
@@ -59,15 +59,10 @@ Puedes enviar productos del catálogo fácilmente a cualquier usuario a través 
 * [GitHub Pages](https://pages.github.com/) - Hosting para proyectos multiplataforma.       
 
 
-### **Deployment** 📦
-
-* Cuenta verificada en Heroku
-
-
 ## **Versionado** 📌
 
-[GitHub](https://github.com/) para el versionado.
-[Heroku](https://www.heroku.com/) para el deployment de la aplicación.
+* [GitHub](https://github.com/) para el versionado.
+* [Heroku](https://www.heroku.com/) para el deployment de la aplicación.
 
 ## **Autores** ✒️
 
