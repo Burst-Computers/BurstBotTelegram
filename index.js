@@ -112,11 +112,11 @@ bot.action('Garantia', (ctx)=> {
 bot.action('Horario', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Informamos a nuestros clientes que temporalmente estamos atentiendo previa cita por motivos de seguridad ante la actual pandemia de COVID-19. Puede coordinar una cita con uno de nuestros representantes para observar nuestros productos o para realizar compras.',
+    ctx.telegram.sendMessage(ctx.chat.id, 'Informamos a nuestros clientes que temporalmente estamos atentiendo previa cita por motivos de seguridad ante la actual pandemia de COVID-19. Puede coordinar una cita con uno de nuestros representantes para observar nuestros productos o para realizar compras',
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Hacer cita", url: "t.me/burstcomputers"}]
+                [{text: "Hacer cita", url: "t.me/burstcomputers"}],
                 [{text: "Volver al menú", callback_data: "backtomenu"}]
             ]
         }
