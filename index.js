@@ -11,7 +11,7 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat solamente escribe @burstcomp_bot y podrás hacerlo! \n \n /help muestra el menú principal en cualquier momento`);
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat escribe @burstcomp_bot y podrás hacerlo! \n \n /help muestra el menú principal en cualquier momento`);
 ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
 {
     reply_markup: {
@@ -90,10 +90,7 @@ bot.action('Direccion', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Ver en Google Maps", url: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x8c2a5f11707d886b:0x4022abc7e7c2c887?utm_source=mstt_1"}],
                 [{text: "Volver al menú", callback_data: "backtomenu"}]
-
-                
             ]
         }
     })
@@ -102,7 +99,7 @@ bot.action('Direccion', (ctx)=> {
 bot.action('Garantia', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Todos nuestros equipos son Refurbished, todos con piezas 100% nuevas y ofrecemos 3 meses de garantía en nuestra tienda',
+    ctx.telegram.sendMessage(ctx.chat.id, 'Todos nuestros equipos incluyen 3 meses de garantía en nuestra tienda',
     {
         reply_markup: {
             inline_keyboard: [
@@ -115,10 +112,11 @@ bot.action('Garantia', (ctx)=> {
 bot.action('Horario', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestro horario de trabajo por los momentos es de 9am a 12pm y atendemos los días Lunes / miércoles / viernes',
+    ctx.telegram.sendMessage(ctx.chat.id, 'Informamos a nuestros clientes que temporalmente estamos atentiendo previa cita por motivos de seguridad ante la actual pandemia de COVID-19. Puede coordinar una cita con uno de nuestros representantes para observar nuestros productos o para realizar compras.',
     {
         reply_markup: {
             inline_keyboard: [
+                [{text: "Hacer cita", url: "t.me/burstcomputers"}]
                 [{text: "Volver al menú", callback_data: "backtomenu"}]
             ]
         }
@@ -128,7 +126,7 @@ bot.action('Horario', (ctx)=> {
 bot.action('listadeprecios', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Puedes encontrar nuestra lista de precios siempre actualizada en este enlace: https://bit.ly/37SdCWu',
+    ctx.telegram.sendMessage(ctx.chat.id, 'En éste momento estamos actualizando nuestra lista, por favor intenta de nuevo mas tarde.',
     {
         reply_markup: {
             inline_keyboard: [
@@ -141,11 +139,67 @@ bot.action('listadeprecios', (ctx)=> {
 bot.action('pagos', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Aceptamos Zelle, Paypal, Banesco Panamá, Transferencias en Bs de todo tipo y efectivo de todo tipo',
+    ctx.telegram.sendMessage(ctx.chat.id, 'Selecciona tu método de pago preferido:',
     {
         reply_markup: {
             inline_keyboard: [
+                [{text: "Zelle", callback_data: "Zelle"}],
+                [{text: "Paypal", callback_data: "Paypal"}],
+                [{text: "Banesco Panamá", callback_data: "Panama"}],
+                [{text: "Transferencia en Bs", callback_data: "Bs"}],
                 [{text: "Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+bot.action('Zelle', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Paga a la siguiente dirección de correo: \nDMZcomputer2020@gmail.com\nJose Velazquez',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver atrás", callback_data: "menupagos"}]
+            ]
+        }
+    })
+})
+
+bot.action('Paypal', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Paga a la siguiente dirección de correo: \n123partes@gmail.com',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver atrás", callback_data: "menupagos"}]
+            ]
+        }
+    })
+})
+
+bot.action('Panama', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Próximamente',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver atrás", callback_data: "menupagos"}]
+            ]
+        }
+    })
+})
+
+bot.action('Bs', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Banesco Venezuela: \nInversiones DMZ 20, C.A \n0134 0376 71 3761054901 \n J-40344708-0 \nburstcomputers@gmail.com',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver atrás", callback_data: "menupagos"}]
             ]
         }
     })
@@ -158,7 +212,24 @@ bot.action('social', (ctx) =>{
         reply_markup: {
             inline_keyboard: [
                 [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}, {text: "Twitter", url: "www.twitter.com/burstcomputers"}],
-                [{text: "Whatsapp", url: "wa.me/584244156765"}, {text: "Discord", url: "https://discord.gg/7ppZQEz"}, {text: "Github", url: "https://burst-computers.github.io/BurstBotTelegram/"}],
+                [{text: "Whatsapp", url: "wa.me/584244156765"}, {text: "Discord", url: "https://discord.gg/7ppZQEz"}],
+                [{text: "Source code", url: "https://burst-computers.github.io/BurstBotTelegram/"}],
+                [{text: "Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+bot.action('menupagos', (ctx)=> {
+    ctx.deleteMessage()
+    ctx.telegram.sendMessage(ctx.chat.id, 'Selecciona tu método de pago preferido:',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Zelle", callback_data: "Zelle"}],
+                [{text: "Paypal", callback_data: "Paypal"}],
+                [{text: "Banesco Panamá", callback_data: "Panama"}],
+                [{text: "Transferencia en Bs", callback_data: "Bs"}],
                 [{text: "Volver al menú", callback_data: "backtomenu"}]
             ]
         }
@@ -192,9 +263,8 @@ bot.on('sticker', ctx =>
  ctx.reply('buen sticker!');  
 })
 
-bot.hears('programador', ctx => 
+bot.hears('Programador', ctx => 
 {
-ctx.toLowerCase();
 ctx.reply("Andrew Clark.\n clark1621@gmail.com");
 })
 
