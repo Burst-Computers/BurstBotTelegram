@@ -11,16 +11,16 @@ console.log("Bot online");
 
 bot.start((ctx) => 
 {
-ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat escribe @burstcomp_bot y podrás hacerlo! \n \n /help muestra el menú principal en cualquier momento`);
-ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
+ctx.reply(`Hola ${ctx.from.first_name}! Bienvenido al chat \n¿Quieres ver el catálogo de productos? Desde cualquier chat escribe @burstcomp_bot y podrás hacerlo! \n \n Puedes volver al /menu principal en cualquier momento`);
+ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
 {
     reply_markup: {
         inline_keyboard: [
             [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
             [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
             [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
-            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
-            [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+            [{text: "Catálogo", callback_data: "catalogo"}],
+            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
             [{text: "Cerrar el menú", callback_data: "cierramenu"}]
           
         ]
@@ -28,22 +28,41 @@ ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
 })
 })
 
+bot.command(['Menu','menu','MENU','menú','Menú','MENÚ'], (ctx) => {
+
+    ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
+{
+    reply_markup: {
+        inline_keyboard: [
+            [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+            [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+            [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+            [{text: "Catálogo", callback_data: "catalogo"}],
+            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+            [{text: "Cerrar el menú", callback_data: "cierramenu"}]
+          
+        ]
+    }
+})
+
+});
+
 bot.help((ctx) => 
 {
-    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
-    {
-        reply_markup: {
-            inline_keyboard: [
-                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
-                [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
-                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
-                [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
-                [{text: "Cerrar el menú", callback_data: "cierramenu"}]
-              
-            ]
-        }
-    })
+    ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
+{
+    reply_markup: {
+        inline_keyboard: [
+            [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
+            [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
+            [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+            [{text: "Catálogo", callback_data: "catalogo"}],
+            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+            [{text: "Cerrar el menú", callback_data: "cierramenu"}]
+          
+        ]
+    }
+})
 })
 
 bot.settings((ctx) => 
@@ -73,14 +92,186 @@ bot.on('inline_query', async (ctx) =>
             thumb_url: elem.photo,
             input_message_content: {
                 message_text: `${elem.title}\n${elem.description} \n${elem.link}`
+                
             },
             url: elem.link
         }
     })
 
-    ctx.answerInlineQuery(index,result)
+    ctx.answerInlineQuery(result)
     
 })
+
+bot.action('catalogo', (ctx) => {
+
+    ctx.deleteMessage();
+    ctx.telegram.sendMessage(ctx.chat.id, 'Catálogo de Productos: 🔥',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "💻 Latitude E6400", callback_data: "E6400"}],
+                [{text: "💻 Latitude E6410", callback_data: "E6410"}],
+                [{text: "💻 Latitude E6420", callback_data: "E6420"}],
+                [{text: "💻 Latitude E6440", callback_data: "E6440"}], 
+                [{text: "🖥 Optiplex 990", callback_data: "990"}],
+                [{text: "🖥 Optiplex 980", callback_data: "980"}],
+                [{text: "🖥 Optiplex 380", callback_data: "380"}],
+                [{text: "🖥 Optiplex 390", callback_data: "390"}],
+                [{text: "🖥 Optiplex 740", callback_data: "740"}],     
+                [{text: " ↩️  Volver al menú", callback_data: "backtomenu"}]
+            ]
+        }
+    
+    })
+});
+
+bot.action('E6400', (ctx) => {
+
+    ctx.deleteMessage();
+    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6400',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}]
+            ]
+        }
+    })
+    ctx.telegram.sendMediaGroup(ctx.chat.id, [
+
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6400/E6400.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6400/E64001.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6400/E64002.jpg'
+                }
+            },
+    ])
+   
+});
+
+bot.action('E6410', (ctx) => {
+
+    ctx.deleteMessage();
+    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6410',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}]
+            ]
+        }
+    })
+    ctx.telegram.sendMediaGroup(ctx.chat.id, [
+
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6410/E6410.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6410/E64102.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6410/E64103.jpg'
+                }
+            },
+    ])
+   
+});
+
+bot.action('E6420', (ctx) => {
+
+    ctx.deleteMessage();
+    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6420',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}]
+            ]
+        }
+    })
+    ctx.telegram.sendMediaGroup(ctx.chat.id, [
+
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6420/E6420.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6420/E64201.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6420/E64202.jpg'
+                }
+            },
+    ])
+   
+});
+
+bot.action('E6440', (ctx) => {
+
+    ctx.deleteMessage();
+    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6440',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Volver al menú", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}]
+            ]
+        }
+    })
+    ctx.telegram.sendMediaGroup(ctx.chat.id, [
+
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6440/E6440.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6440/E64402.jpg'
+                }
+            },
+            {
+                type: 'photo',
+                media: {
+                    source: 'src/E6440/E64403.jpg'
+                }
+            },
+    ])
+   
+});
 
 bot.action('Direccion', (ctx)=> {
 
@@ -160,7 +351,7 @@ bot.action('Zelle', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Volver atrás", callback_data: "menupagos"}]
+                [{text: "Volver atrás", callback_data: "pagos"}]
             ]
         }
     })
@@ -173,7 +364,7 @@ bot.action('Paypal', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Volver atrás", callback_data: "menupagos"}]
+                [{text: "Volver atrás", callback_data: "pagos"}]
             ]
         }
     })
@@ -186,7 +377,7 @@ bot.action('Panama', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Volver atrás", callback_data: "menupagos"}]
+                [{text: "Volver atrás", callback_data: "pagos"}]
             ]
         }
     })
@@ -199,7 +390,7 @@ bot.action('Bs', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Volver atrás", callback_data: "menupagos"}]
+                [{text: "Volver atrás", callback_data: "pagos"}]
             ]
         }
     })
@@ -220,33 +411,17 @@ bot.action('social', (ctx) =>{
     })
 })
 
-bot.action('menupagos', (ctx)=> {
-    ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Selecciona tu método de pago preferido:',
-    {
-        reply_markup: {
-            inline_keyboard: [
-                [{text: "Zelle", callback_data: "Zelle"}],
-                [{text: "Paypal", callback_data: "Paypal"}],
-                [{text: "Banesco Panamá", callback_data: "Panama"}],
-                [{text: "Transferencia en Bs", callback_data: "Bs"}],
-                [{text: "Volver al menú", callback_data: "backtomenu"}]
-            ]
-        }
-    })
-})
-
 bot.action('backtomenu', (ctx)=> {
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Menú principal 🔥',
+    ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
     {
         reply_markup: {
             inline_keyboard: [
                 [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
                 [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
                 [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
-                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"}],
-                [{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+                [{text: "Catálogo", callback_data: "catalogo"}],
+                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
                 [{text: "Cerrar el menú", callback_data: "cierramenu"}]
               
             ]
