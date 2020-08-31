@@ -147,9 +147,9 @@ bot.action('E6400', (ctx) => {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Menú Principal", callback_data: "backtomenu"}],
-                [{text: "Comprar", url: "t.me/burstcomputers"}],
-                [{text: "Volver al catálogo", callback_data: "catalogo"}]
+                [{text: "Menú Principal", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}]
             ]
         }
     })
@@ -201,7 +201,7 @@ bot.action('E6410', (ctx) => {
             {
                 type: 'photo',
                 media: {
-                    source: 'src/E6410/E64102.jpg'
+                    source: 'src/E6410/E64101.jpg'
                 }
             },
             {
@@ -312,13 +312,13 @@ bot.action('7010DT', (ctx) => {
             {
                 type: 'photo',
                 media: {
-                    source: 'src/7010DT/7012.jpg'
+                    source: 'src/7010DT/70102.jpg'
                 }
             },
             {
                 type: 'photo',
                 media: {
-                    source: 'src/7010DT/7013.jpg'
+                    source: 'src/7010DT/70103.jpg'
                 }
             },
     ])
@@ -380,7 +380,7 @@ bot.action('9010SFF', (ctx) => {
             {
                 type: 'photo',
                 media: {
-                    source: 'src/9010SFF/9010.jpg'
+                    source: 'src/9010SFF/9010.png'
                 }
             },
             {
