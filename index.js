@@ -140,19 +140,10 @@ bot.action('catalogo', (ctx) => {
     })
 });
 
-bot.action('E6400', (ctx) => {
+bot.action('E6400', async (ctx) => {
 
     ctx.deleteMessage();
-    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6400',
-    {
-        reply_markup: {
-            inline_keyboard: [
-                [{text: "Menú Principal", callback_data: "backtomenu"},
-                {text: "Comprar", url: "t.me/burstcomputers"},
-                {text: "Volver al catálogo", callback_data: "catalogo"}]
-            ]
-        }
-    })
+    ctx.telegram.sendMessage(ctx.chat.id, 'Latitude E6400');
     ctx.telegram.sendMediaGroup(ctx.chat.id, [
 
             {
@@ -174,7 +165,17 @@ bot.action('E6400', (ctx) => {
                 }
             },
     ])
-   
+    await ctx.telegram.sendMessage(ctx.chat.id, '¿Que deseas hacer?',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Menú Principal", callback_data: "backtomenu"},
+                {text: "Comprar", url: "t.me/burstcomputers"},
+                {text: "Volver al catálogo", callback_data: "catalogo"}],
+                [{text: "cierra el menu", callback_data: "cierramenu"}]
+            ]
+        }
+    }) 
 });
 
 bot.action('E6410', (ctx) => {
@@ -675,12 +676,13 @@ bot.action('cierramenu', (ctx)=> {
 
 bot.on('sticker', ctx =>
 {
- ctx.reply('buen sticker!');  
+ ctx.reply(`buen sticker, ${ctx.from.first_name}!`);  
 })
 
-bot.hears('Programador', ctx => 
+
+bot.hears(['Programador','programador','PROGRAMADOR'], ctx => 
 {
-ctx.reply("Andrew Clark.\n clark1621@gmail.com");
+ctx.reply("Yo fuí diseñado por Andrew Clark.\nContacto: clark1621@gmail.com");
 })
 
 bot.launch()
