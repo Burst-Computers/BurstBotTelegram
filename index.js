@@ -16,10 +16,11 @@ ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
 {
     reply_markup: {
         inline_keyboard: [
-            [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-            [{text: "Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
-            [{text: "Catálogo", callback_data: "catalogo"}],
-            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+            [{text: "🌎 Sitio Web", url: "www.burstcomputers.wordpresss.com"}],
+            [{text: "📌 Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
+            [{text: "📸 Catálogo", callback_data: "catalogo"}],
+            [{text: "📱 Redes sociales", callback_data: "social"}],
+            [{text: "Hablar con Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
             [{text: "❌ Cerrar el menú", callback_data: "cierramenu"}]
           
              ]
@@ -33,33 +34,33 @@ bot.command(['Menu','menu','MENU','menú','Menú','MENÚ'], (ctx) => {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
-                [{text: "Catálogo", callback_data: "catalogo"}],
-                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+                [{text: "🌎 Sitio Web", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "📌 Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
+                [{text: "📸 Catálogo", callback_data: "catalogo"}],
+                [{text: "📱 Redes sociales", callback_data: "social"}],
+                [{text: "Hablar con Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
                 [{text: "❌ Cerrar el menú", callback_data: "cierramenu"}]
-              
-            ]
-        }
-    })
-
+                ]
+            }
+        })
 });
 
 bot.help((ctx) => 
 {
     ctx.telegram.sendMessage(ctx.chat.id, ' 🔥 Menú principal 🔥',
-{
-    reply_markup: {
-        inline_keyboard: [
-            [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-            [{text: "Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
-            [{text: "Catálogo", callback_data: "catalogo"}],
-            [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
-            [{text: "❌ Cerrar el menú", callback_data: "cierramenu"}]
-          
-        ]
-    }
-})
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "🌎 Sitio Web", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "📌 Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
+                [{text: "📸 Catálogo", callback_data: "catalogo"}],
+                [{text: "📱 Redes sociales", callback_data: "social"}],
+                [{text: "Hablar con Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+                [{text: "❌ Cerrar el menú", callback_data: "cierramenu"}]
+              
+                 ]
+            }
+        })
 })
 
 bot.settings((ctx) => 
@@ -102,13 +103,15 @@ bot.on('inline_query', async (ctx) =>
 bot.action('preguntasfrecuentes', (ctx) =>{
 
     ctx.deleteMessage();
-    ctx.telegram.sendMessage(ctx.chat.id, 'FAQs:',
+    ctx.telegram.sendMessage(ctx.chat.id, 'FAQs',
     
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Dirección📍", callback_data: "Direccion"}, {text: "Garantía ✅", callback_data: "Garantia"}, {text: "Horario ⌚️", callback_data: "Horario"}],
-                [{text: "Precios 🔖", callback_data: "listadeprecios"}, {text: "Pagos 💵", callback_data: "pagos"}, {text: "Redes 📱", callback_data: "social"}],
+                [{text: "📍 Dirección", callback_data: "Direccion"}, {text: "✅ Garantía ", callback_data: "Garantia"}],
+                [{text: "⌚️ Horario", callback_data: "Horario"}],
+                [{text: "🔖 Precios por categoría ", callback_data: "listadeprecios"}],
+                [{text: "💵 Pagos y transferencias", callback_data: "pagos"}],
                 [{text: " ↩️  Volver al menú", callback_data: "backtomenu"}]
             ]
         }
@@ -639,15 +642,15 @@ bot.action('Bs', (ctx)=> {
 
 bot.action('social', (ctx) =>{
     ctx.deleteMessage()
-    ctx.telegram.sendMessage(ctx.chat.id, 'Nuestras Redes Sociales:',
+    ctx.telegram.sendMessage(ctx.chat.id, ' Siguenos en nuestras Redes Sociales:',
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}, {text: "Twitter", url: "www.twitter.com/burstcomputers"}],
-                [{text: "Whatsapp", url: "wa.me/584244156765"}, {text: "Discord", url: "https://discord.gg/7ppZQEz"}],
+                [{text: "Facebook", url: "www.facebook.com/burstcomputers"}, {text: "Instagram", url: "www.instagram.com/burstcomputers"}],
+                [{text: "Twitter", url: "www.twitter.com/burstcomputers"},{text: "Whatsapp", url: "wa.me/584244156765"}],
+                [{text: " Servidor Discord", url: "https://discord.gg/7ppZQEz"}],
                 [{text: "Source code", url: "https://burst-computers.github.io/BurstBotTelegram/"}],
-                [{text: "↩️  Volver atrás", callback_data: "preguntasfrecuentes"}],
-                [{text: "Menú principal", callback_data: "backtomenu"}]
+                [{text: "↩️  Volver al menú", callback_data: "backtomenu"}]
             ]
         }
     })
@@ -659,15 +662,16 @@ bot.action('backtomenu', (ctx)=> {
     {
         reply_markup: {
             inline_keyboard: [
-                [{text: "Sitio Web 🌎", url: "www.burstcomputers.wordpresss.com"}],
-                [{text: "Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
-                [{text: "Catálogo", callback_data: "catalogo"}],
-                [{text: "Habla con un Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
+                [{text: "🌎 Sitio Web", url: "www.burstcomputers.wordpresss.com"}],
+                [{text: "📌 Preguntas Frecuentes", callback_data:"preguntasfrecuentes"}],
+                [{text: "📸 Catálogo", callback_data: "catalogo"}],
+                [{text: "📱 Redes sociales", callback_data: "social"}],
+                [{text: "Hablar con Operador", url: "https://t.me/burstcomputers"},{text: "Nuestro canal oficial", url: "https://t.me/burstcomputers_channel"}],
                 [{text: "❌ Cerrar el menú", callback_data: "cierramenu"}]
               
-            ]
-        }
-    })
+                 ]
+            }
+        })
 })
 
 bot.action('cierramenu', (ctx)=> {
@@ -679,10 +683,10 @@ bot.on('sticker', ctx =>
  ctx.reply(`buen sticker, ${ctx.from.first_name}!`);  
 })
 
-
 bot.hears(['Programador','programador','PROGRAMADOR'], ctx => 
 {
 ctx.reply("Yo fuí diseñado por Andrew Clark.\nContacto: clark1621@gmail.com");
 })
+
 
 bot.launch()
