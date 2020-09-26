@@ -555,11 +555,28 @@ bot.action('Horario', (ctx)=> {
 bot.action('listadeprecios', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendPhoto(ctx.chat.id, 'https://burst-computers.github.io/BurstBotTelegram/precios.png');
+    ctx.telegram.sendPhoto(ctx.chat.id, 'https://burst-computers.github.io/BurstBotTelegram/src/precios.jpg');
     ctx.telegram.sendMessage(ctx.chat.id, 'Precios de CPU por Categoría',
     {
         reply_markup: {
             inline_keyboard: [
+                [{text: "Ver en alta calidad", callback_data: "precioscpuhd"}],
+                [{text: "↩️  Volver atrás", callback_data: "preguntasfrecuentes"}],
+                [{text: "Menú principal", callback_data: "backtomenu"}]
+            ]
+        }
+    })
+})
+
+bot.action('precioscpuhd', (ctx)=> {
+    
+    ctx.deleteMessage()
+    ctx.telegram.sendPhoto(ctx.chat.id, 'https://burst-computers.github.io/BurstBotTelegram/src/precios.png');
+    ctx.telegram.sendMessage(ctx.chat.id, 'Precios de CPU por Categoría',
+    {
+        reply_markup: {
+            inline_keyboard: [
+                [{text: "Ver en calidad estándar", callback_data: "listadeprecios"}],
                 [{text: "↩️  Volver atrás", callback_data: "preguntasfrecuentes"}],
                 [{text: "Menú principal", callback_data: "backtomenu"}]
             ]
