@@ -555,7 +555,7 @@ bot.action('Horario', (ctx)=> {
 bot.action('listadeprecios', (ctx)=> {
     
     ctx.deleteMessage()
-    ctx.telegram.sendPhoto(ctx.chat.id, "src/precios.png");
+    ctx.telegram.sendPhoto(ctx.chat.id, { source: "src/precios.png" });
     ctx.telegram.sendMessage(ctx.chat.id, 'Precios de CPU por Categoría',
     {
         reply_markup: {
